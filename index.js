@@ -6,6 +6,7 @@ async function main(){
     let failureCount = 0
     let successCount = 0
     let attempts = 100
+    let startTime = new Date().getTime()
     const USER_ID = Math.floor(Math.random()*1000000)
     for (let i = 0; i< attempts; i ++){
         const options = {
@@ -32,6 +33,9 @@ async function main(){
             failureCount++
         }
     }
+    console.log(`userId: ${USER_ID}`)
+    let totalTime = Math.floor((new Date().getTime() - startTime) / 1000)
     console.log(`Total attempts: ${attempts}, Success Rate ${successCount/attempts}`)
+    console.log(`Total time elapsed: ${totalTime} seconds`)
 }
 main()
